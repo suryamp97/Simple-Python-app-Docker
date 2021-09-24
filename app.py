@@ -21,7 +21,7 @@ def srch():
         for tweet in tweepy.Cursor(self.api.search,q=kw, count=10).items(10):  
             tj=tweet._json
             tweets.append(tj["text"])
-       return "TWEETS: " + tweets
+        return "TWEETS: " + tweets
     return render_template("index.html")
 
 
