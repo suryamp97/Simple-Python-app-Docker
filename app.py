@@ -22,12 +22,11 @@ def main():
     cur = conn.cursor()
     operation= 'select * from history order by id desc limit 10'
     cur.execute(operation)
-    jj=cur.fetchall()
-    print("asdajknda")
-    print(jj)
+    data=cur.fetchall()
+    print(data)
     conn.commit()        
     cur.close()
-    return render_template('index.html')
+    return render_template('index.html',data)
   
 @app.route('/', methods =["GET", "POST"])
 def srch():
