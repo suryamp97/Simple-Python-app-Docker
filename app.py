@@ -28,7 +28,7 @@ def srch():
         cur = conn.cursor()
         x=0
         cur.execute("INSERT INTO History(id, keyw) VALUES (%s, %s)", (x, kw))
-        mysql.connection.commit()
+        conn.commit()
         
         cur.close()
         
