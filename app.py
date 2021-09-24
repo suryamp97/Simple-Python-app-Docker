@@ -26,7 +26,7 @@ def main():
     print(jj)
     conn.commit()        
     cur.close()
-    return render_template('index.html',data)
+    return render_template('index.html',jj)
   
 @app.route('/', methods =["GET", "POST"])
 def srch():
