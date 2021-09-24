@@ -10,6 +10,7 @@ img {
   form {
 text-align: center;
   }
+ 
 </style>
 </head>
 <body>
@@ -24,12 +25,13 @@ text-align: center;
 
 
 </form>
-    <p>Previous 10 searches</p>
+  <div   style="width:800px; margin:0 auto;">
+    <p >Previous 10 searches</p>
     <ul>
     {% for item in data %}
     <li>{{item.keyw}}</li>
 
 {% endfor %}
-</ul>
+  </ul></div>
 </body>
 </html>
