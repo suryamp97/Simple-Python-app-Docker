@@ -18,7 +18,7 @@ def srch():
         kw = request.form.get("search")
         tweets = []
         c=0
-        for tweet in tweepy.Cursor(self.api.search,q=kw, count=10).items(10):  
+        for tweet in tweepy.Cursor(api.search,q=kw, count=10).items(10):  
             tj=tweet._json
             tweets.append(tj["text"])
         return "TWEETS: " + tweets
