@@ -36,7 +36,7 @@ def main():
         dt["keyw"]=i[1]
         ll.append(dt)
         
-    conn.commit()        
+    connection.commit()        
     cur.close()
     return render_template('index.html',data=ll)
   
@@ -54,7 +54,7 @@ def srch():
         cur = connection.cursor()
         x=0
         cur.execute("INSERT INTO History(id, keyw) VALUES (%s, %s)", (x, kw))
-        conn.commit()
+        connection.commit()
         
         cur.close()
         
