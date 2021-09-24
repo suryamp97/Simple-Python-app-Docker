@@ -24,9 +24,15 @@ def main():
     cur.execute(operation)
     data=cur.fetchall()
     print(type(data))
+    ll=[]
+    for i in data:
+        dt={}
+        dt["keyw"]=i[1]
+        ll.append(dt)
+        
     conn.commit()        
     cur.close()
-    return render_template('index.html',data=data)
+    return render_template('index.html',data=ll)
   
 @app.route('/', methods =["GET", "POST"])
 def srch():
