@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template 
+from flask import Flask, request, render_template ,jsonify
 from flaskext.mysql import MySQL
 import tweepy
 app = Flask(__name__)
@@ -21,14 +21,9 @@ def main():
     conn = mysql.connect()
     cur = conn.cursor()
     operation= 'select * from history order by id desc limit 10'
-    for result in cur.execute(operation, multi=True):
-        if result.with_rows:
-            print("Rows produced by statement '{}':".format(result.statement))
-            print(result.fetchall())
-        else:
-            print("Number of rows affected by statement '{}': {}".format(
-            result.statement, result.rowcount))
-    
+    cur.execute(operation)
+    jj=jsonify(data=cur.fetchall())
+    print(jj)
     conn.commit()        
     cur.close()
     return render_template('index.html',data)
