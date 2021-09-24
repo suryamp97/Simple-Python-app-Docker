@@ -2,7 +2,7 @@ from flask import Flask, request, render_template ,jsonify
 import mysql.connector
 import tweepy
 app = Flask(__name__)
-mysql = MySQL()
+#mysql = MySQL()
 
 # app.config['MYSQL_DATABASE_USER'] = 'root'
 # app.config['MYSQL_DATABASE_PASSWORD'] = ''
