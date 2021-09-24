@@ -12,7 +12,7 @@ img {
 <body>
 
 <img src="/static/ubi.jpeg" width="200" height="200">
-<form action=>
+<form action="{{ url_for("search")}}" method="post">
   <label for="search">Search tweets from Ubisoft twitter</label><br>
   
   <input type="text" id="search" name="search" value="Keywords..."><br>
