@@ -1,5 +1,5 @@
 from flask import Flask, request, render_template 
-from flask.ext.mysql import MySQL
+from flask_mysql import MySQL
 import tweepy
 app = Flask(__name__)
 mysql = MySQL()
