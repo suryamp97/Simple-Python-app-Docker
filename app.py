@@ -1,14 +1,14 @@
 from flask import Flask, request, render_template 
-from flask_mysqldb import MySQL
+from flask.ext.mysql import MySQL
 import tweepy
 app = Flask(__name__)
+mysql = MySQL()
 
-
-app.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = ''
-app.config['MYSQL_DB'] = 'test'
-mysql = MySQL(app)
+app.config['MYSQL_DATABASE_USER'] = 'root'
+app.config['MYSQL_DATABASE_PASSWORD'] = ''
+app.config['MYSQL_DATABASE_DB'] = 'test'
+app.config['MYSQL_DATABASE_HOST'] = 'localhost'
+mysql.init_app(app)
 
 
 auth = tweepy.OAuthHandler("AC7WkBbTptQM1F9vPvaWMnPu0", "6Kv4MuuLHX3FvB0PxNLZaa1ajyIIrnGqVQriBvmYzGD8u2fD3O")
@@ -24,10 +24,9 @@ def main():
 def srch():
     if request.method == "POST":
         kw = request.form.get("search")
-        cur = mysql.connection.cursor()
-#         cur.execute("INSERT INTO History(firstName, lastName) VALUES (%s, %s)", (firstName, lastName))
-#         mysql.connection.commit()
-        cur.close()
+        conn = mysql.connect()
+        cursor = conn.cursor()
+
         tweets = []
         c=0
         for tweet in tweepy.Cursor(api.search,q=kw, count=10).items(10):  
