@@ -21,13 +21,15 @@ text-align: center;
   <input type="text" id="search" name="search" value="Keywords..."><br>
   
   <input type="submit" value="Search">
-  <p>Previous 10 searches</p>
-  <ul>
+
+
+</form>
+    <p>Previous 10 searches</p>
+    <ul>
     {% for item in data %}
     <li>{{item.keyw}}</li>
 
 {% endfor %}
 </ul>
-</form>
 </body>
 </html>
