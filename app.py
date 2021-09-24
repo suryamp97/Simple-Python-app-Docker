@@ -23,10 +23,10 @@ def main():
     operation= 'select * from history order by id desc limit 10'
     cur.execute(operation)
     data=cur.fetchall()
-    print(data)
+    print(type(data))
     conn.commit()        
     cur.close()
-    return render_template('index.html',data)
+    return render_template('index.html',data=data)
   
 @app.route('/', methods =["GET", "POST"])
 def srch():
