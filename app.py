@@ -8,11 +8,11 @@ def main():
     return render_template('index.html')
   
 @app.route('/', methods =["GET", "POST"])
-def gfg():
+def srch():
     if request.method == "POST":
-       first_name = request.form.get("search")
-       return "Your name is "+first_name + last_name
-    return render_template("form.html")
+       kw = request.form.get("search")
+       return "Your name is " + kw
+    return render_template("index.html")
 
 
 if __name__ == "__main__":
