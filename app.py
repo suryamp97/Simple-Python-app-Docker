@@ -18,7 +18,15 @@ api = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)
 
 @app.route("/")
 def main():
-    return render_template('index.html')
+    conn = mysql.connect()
+    cur = conn.cursor()
+    stmt= cur.execute("select * from history order by id desc limit 10")
+    xx= stmt.statement
+    print(type(stmt),stmt)
+    
+    conn.commit()        
+    cur.close()
+    return render_template('index.html',data)
   
 @app.route('/', methods =["GET", "POST"])
 def srch():
