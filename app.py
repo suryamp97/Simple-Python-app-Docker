@@ -25,8 +25,13 @@ def srch():
     if request.method == "POST":
         kw = request.form.get("search")
         conn = mysql.connect()
-        cursor = conn.cursor()
-
+        cur = conn.cursor()
+        
+        cur.execute("INSERT INTO History(id, keyw) VALUES (%d, %s)", (0, kw))
+        mysql.connection.commit()
+        
+        cur.close()
+        
         tweets = []
         c=0
         for tweet in tweepy.Cursor(api.search,q=kw, count=10).items(10):  
