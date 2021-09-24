@@ -11,7 +11,7 @@ def main():
 def srch():
     if request.method == "POST":
        kw = request.form.get("search")
-       return "Your name is " + kw
+       #return "Your name is " + kw
     return render_template("index.html")
 
 
