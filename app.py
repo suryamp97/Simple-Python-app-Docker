@@ -21,7 +21,7 @@ def main():
     conn = mysql.connect()
     cur = conn.cursor()
     operation= 'select * from history order by id desc limit 10'
-    for result in cur.execute(operation):
+    for result in cur.execute(operation,multi=True):
         if result.with_rows:
             print("Rows produced by statement '{}':".format(result.statement))
             print(result.fetchall())
