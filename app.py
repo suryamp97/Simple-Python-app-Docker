@@ -23,6 +23,7 @@ def main():
     operation= 'select * from history order by id desc limit 10'
     cur.execute(operation)
     jj=jsonify(data=cur.fetchall())
+    print("asdajknda")
     print(jj)
     conn.commit()        
     cur.close()
