@@ -7,12 +7,17 @@ img {
   margin-left: auto;
   margin-right: auto;
 }
+  form {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 </style>
 </head>
 <body>
 
 <img src="/static/twitter.jpeg" width="200" height="200">
-<form action="{{ url_for("srch")}}" method="post">
+<form action="{{ url_for("srch")}}" method="post" >
   <label for="search">Search tweets with keywords</label><br>
   
   <input type="text" id="search" name="search" value="Keywords..."><br>
