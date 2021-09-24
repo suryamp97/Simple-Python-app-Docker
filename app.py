@@ -20,9 +20,14 @@ api = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)
 def main():
     conn = mysql.connect()
     cur = conn.cursor()
-    stmt= cur.execute("select * from history order by id desc limit 10")
-    xx= stmt.statement
-    print(type(stmt),stmt)
+    operation= 'select * from history order by id desc limit 10'
+    for result in cursor.execute(operation):
+        if result.with_rows:
+            print("Rows produced by statement '{}':".format(result.statement))
+            print(result.fetchall())
+        else:
+            print("Number of rows affected by statement '{}': {}".format(
+            result.statement, result.rowcount))
     
     conn.commit()        
     cur.close()
