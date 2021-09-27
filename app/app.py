@@ -25,9 +25,10 @@ def srch():
         
         tweets = []
         c=0
-        for tweet in tweepy.Cursor(api.search,q=kw, count=10).items(10):  
-            tj=tweet._json
-            tweets.append(tj["text"])
+	tws= api.search(q=kw, count=10)
+	for tweet in tws:
+		tweets.append(tweet.text)
+	
         str_='TOP TWEETS FOR THE KEYWORD: '+kw+"<br/><br/>"
         for i in range(len(tweets)):
             str_= str_ + str(i+1) + ")  " + tweets[i]+ "<br/><br/>"
