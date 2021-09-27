@@ -36,7 +36,7 @@ def srch():
         tweets = []
         c = 0
 
-        tws = api.search(q=kw, count=10)
+        tws = api.search_tweets(q=kw, count=10)
 
         for tweet in tws:
             tweets.append(tweet.text)
