@@ -30,7 +30,7 @@ def srch():
             tweets.append(tj["text"])
         str_='TOP TWEETS FOR THE KEYWORD: '+kw+"<br/><br/>"
         for i in range(len(tweets)):
-            str_= str_ + str(i+1) + ")  " + tweets[i]+ "<br/>"
+            str_= str_ + str(i+1) + ")  " + tweets[i]+ "<br/><br/>"
             
         return  str_
     return render_template("index.html")
