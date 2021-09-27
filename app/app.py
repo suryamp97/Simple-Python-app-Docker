@@ -13,7 +13,6 @@ api = tweepy.API(auth, wait_on_rate_limit=True)
 def srch():
     if request.method == "POST":
         kw = request.form.get("search")
-	config ={'user':'root','password':'','host':'localhost','database':'test'}
         connection = mysql.connector.connect(**config)
         cur =connection.cursor()
         x=0
