@@ -14,7 +14,7 @@ def srch():
     if request.method == "POST":
         kw = request.form.get("search")
         #config = {'user': 'root','password': 'root','host': 'db','port': '3306','database': 'htest'}
-	config = {'user': 'root','password': '','host': 'localhost','database': 'test'}
+	config = {'user':'root','password':'','host':'localhost','database':'test'}
 	connection = mysql.connector.connect(**config)
         cur = connection.cursor()
         x=0
