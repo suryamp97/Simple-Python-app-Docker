@@ -15,7 +15,7 @@ def srch():
         kw = request.form.get("search")
 	config = {'user':'root','password':'','host':'localhost','database':'test'}
 	connection = mysql.connector.connect(**config)
-        cur = connection.cursor()
+        cur =connection.cursor()
         x=0
         print("rtdgfgfchgvjh")
         cur.execute("INSERT INTO History(id, keyw) VALUES (%s, %s)", (x, kw))
