@@ -19,9 +19,10 @@ def srch():
         kw = request.form.get('search')
         config = {
             'user': 'root',
-            'password': '',
-            'host': 'localhost',
-            'database': 'test',
+            'password': 'root',
+            'host': 'db',
+            'port':'3306',
+            'database': 'htest'
             }
         connection = mysql.connector.connect(**config)
         cur = connection.cursor()
@@ -55,9 +56,10 @@ def index():
 
     config = {
         'user': 'root',
-        'password': '',
-        'host': 'localhost',
-        'database': 'test',
+        'password': 'root',
+        'host': 'db',
+        'port':'3306',
+        'database': 'htest'
         }
     connection = mysql.connector.connect(**config)
     cur = connection.cursor()
